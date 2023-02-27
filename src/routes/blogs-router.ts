@@ -8,7 +8,6 @@ import {
 } from "../middlewares/input-validation-middleware";
 export const blogsRouter = Router({});
 
-
 blogsRouter.get('/', (req:Request,res:Response) => {
     res.send(blogsRepository.returnAllBlogs());
 })
