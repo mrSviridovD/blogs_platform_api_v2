@@ -1,6 +1,11 @@
 import {Request, Response, Router} from "express";
 import {blogsRepository} from "../repositories/blogs-repository";
-import {body, validationResult} from "express-validator";
+import {
+    descriptionValidation,
+    inputValidation,
+    nameValidation,
+    websiteUrlValidation
+} from "../middlewares/input-validation-middleware";
 
 export const blogsRouter = Router({});
 
@@ -26,13 +31,21 @@ blogsRouter.delete('/:id', (req:Request,res:Response) => {
 })
 
 blogsRouter.post('/',
-    body('name').isLength({min:5, max:10}),
+    nameValidation,
+    descriptionValidation,
+    websiteUrlValidation,
+    inputValidation,
     (req:Request,res:Response) => {
     const newBlog = blogsRepository.createBlog(req.body)
     res.status(201).send(newBlog)
 })
 
-blogsRouter.put('/:id',(req:Request,res:Response) => {
+blogsRouter.put('/:id',
+    nameValidation,
+    descriptionValidation,
+    websiteUrlValidation,
+    inputValidation,
+    (req:Request,res:Response) => {
     const updateBlog = blogsRepository.updateBlogById(req.params.id, req.body)
     if(updateBlog){
         res.sendStatus(204)
