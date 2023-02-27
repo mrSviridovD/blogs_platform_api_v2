@@ -6,6 +6,7 @@ import {
     nameValidation,
     websiteUrlValidation
 } from "../middlewares/input-validation-middleware";
+import {auth} from "../middlewares/basic-auth";
 export const blogsRouter = Router({});
 
 blogsRouter.get('/', (req:Request,res:Response) => {
@@ -20,6 +21,8 @@ blogsRouter.get('/:id', (req:Request,res:Response) => {
         res.sendStatus(404)
     }
 })
+
+blogsRouter.use(auth)
 
 blogsRouter.delete('/:id', (req:Request,res:Response) => {
     if(blogsRepository.deleteBlog(req.params.id)){

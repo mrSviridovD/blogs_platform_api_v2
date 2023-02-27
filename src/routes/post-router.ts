@@ -6,6 +6,7 @@ import {
     shortDescriptionValidation,
     titleValidation
 } from "../middlewares/input-validation-middleware";
+import {auth} from "../middlewares/basic-auth";
 
 export const postsRouter = Router({});
 
@@ -22,6 +23,7 @@ postsRouter.get('/:id', (req:Request,res:Response) => {
     res.send(foundPost)
 })
 
+postsRouter.use(auth);
 postsRouter.delete('/:id', (req:Request,res:Response) => {
     const deletePost = postsRepository.deletePost(req.params.id)
     if(!deletePost){
