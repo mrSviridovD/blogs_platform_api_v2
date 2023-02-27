@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use('/api/blogs',blogsRouter)
-app.use('/api/posts', postsRouter)
+app.use('/blogs',blogsRouter)
+app.use('/posts', postsRouter)
 
 app.get('/', (req:Request, res:Response) => {
     res.send('Hello World!')
@@ -26,7 +26,7 @@ app.listen(port, () => {
 
 
 //TESTING - DELETE ALL DATA
-app.delete('/api/testing/all-data', (req: Request,res: Response) => {
+app.delete('/testing/all-data', (req: Request,res: Response) => {
    // postsRepository.deleteAllData();
     blogsRepository.deleteAllData();
     postsRepository.deleteAllData();

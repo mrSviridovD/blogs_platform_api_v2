@@ -30,13 +30,7 @@ postsRouter.delete('/:id', (req:Request,res:Response) => {
     res.sendStatus(204)
 })
 
-postsRouter.post('/',
-    titleValidation,
-    shortDescriptionValidation,
-    contentValidation,
-    blogIdValidation,
-    inputValidation,
-    (req:Request,res:Response) => {
+postsRouter.post('/',titleValidation,shortDescriptionValidation,contentValidation,blogIdValidation,inputValidation,(req:Request,res:Response) => {
     const newBlog = postsRepository.createPost(req.body)
     if(!newBlog){
         res.sendStatus(404);
@@ -44,13 +38,7 @@ postsRouter.post('/',
     res.status(201).send(newBlog)
 })
 
-postsRouter.put('/:id',
-    titleValidation,
-    shortDescriptionValidation,
-    contentValidation,
-    blogIdValidation,
-    inputValidation,
-    (req:Request,res:Response) => {
+postsRouter.put('/:id',titleValidation,shortDescriptionValidation,contentValidation,blogIdValidation,inputValidation,(req:Request,res:Response) => {
     const updatePost = postsRepository.updatePostById(req.params.id, req.body)
     if(!updatePost){
         res.sendStatus(404)
