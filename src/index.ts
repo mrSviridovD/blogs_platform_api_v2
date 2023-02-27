@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use('/api/blogs',blogsRouter)
-app.use('/api/posts', postsRouter)
+app.use('/blogs',blogsRouter)
+app.use('/posts', postsRouter)
 
 app.get('/', (req:Request, res:Response) => {
     res.send('Hello World!')
