@@ -34,8 +34,8 @@ export const blogsRepository = {
     updateBlogById(id: string, blog: Blog){
         const updateBlog = bdBlogs.find(f => f.id === id)
         if (updateBlog){
-            updateBlog.name = blog.name,
-            updateBlog.websiteUrl = blog.websiteUrl,
+            updateBlog.name = blog.name
+            updateBlog.websiteUrl = blog.websiteUrl
             updateBlog.description = blog.description
             return true
         }
