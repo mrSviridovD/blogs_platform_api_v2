@@ -22,9 +22,7 @@ blogsRouter.get('/:id', (req:Request,res:Response) => {
     }
 })
 
-blogsRouter.use(auth)
-
-blogsRouter.delete('/:id', (req:Request,res:Response) => {
+blogsRouter.delete('/:id', auth,(req:Request,res:Response) => {
     if(blogsRepository.deleteBlog(req.params.id)){
         res.sendStatus(204)
     }else{
@@ -32,12 +30,12 @@ blogsRouter.delete('/:id', (req:Request,res:Response) => {
     }
 })
 
-blogsRouter.post ('/',nameValidation,descriptionValidation,websiteUrlValidation,inputValidation,(req:Request,res:Response) => {
+blogsRouter.post ('/',auth, nameValidation,descriptionValidation,websiteUrlValidation,inputValidation,(req:Request,res:Response) => {
     const newBlog = blogsRepository.createBlog(req.body)
     res.status(201).send(newBlog)
 })
 
-blogsRouter.put('/:id',nameValidation,descriptionValidation,websiteUrlValidation,inputValidation,(req:Request,res:Response) => {
+blogsRouter.put('/:id',auth, nameValidation,descriptionValidation,websiteUrlValidation,inputValidation,(req:Request,res:Response) => {
     const updateBlog = blogsRepository.updateBlogById(req.params.id, req.body)
     if(updateBlog){
         res.sendStatus(204)
