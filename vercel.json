@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "1_1_homeTask",
+  "name": "blogs_platform_api_v2",
   "builds": [
     {
       "src": "src/index.ts",
