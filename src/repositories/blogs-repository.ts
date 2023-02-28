@@ -13,11 +13,10 @@ export const blogsRepository = {
             return false
     },
     deleteBlog(id: string){
-        for (let i = 0; i < id.length; i++) {
-            if (bdBlogs[i].id === id){
-                bdBlogs.splice(i,1)
-                return true;
-            }
+        const foundBlog = bdBlogs.find(b => b.id === id)
+        if(foundBlog){
+            bdBlogs.filter(b => b.id !== id)
+            return true
         }
         return false
     },

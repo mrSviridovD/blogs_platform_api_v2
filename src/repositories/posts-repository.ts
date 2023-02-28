@@ -14,11 +14,10 @@ export const postsRepository = {
     },
 
     deletePost(id: string){
-        for (let i = 0; i < id.length; i++) {
-            if (bdPosts[i].id === id){
-                bdPosts.splice(i,1)
-                return true;
-            }
+        const foundPost = bdPosts.find(p => p.id === id)
+        if(foundPost){
+            bdPosts.filter(p => p.id !== id)
+            return true
         }
         return false
     },
