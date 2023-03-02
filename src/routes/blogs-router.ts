@@ -6,8 +6,11 @@ import {
     nameValidation,
     websiteUrlValidation
 } from "../middlewares/input-validation-middleware";
+
 import {auth} from "../middlewares/basic-auth";
+
 export const blogsRouter = Router({});
+
 
 blogsRouter.get('/', (req:Request,res:Response) => {
     res.status(200).send(blogsRepository.returnAllBlogs());
