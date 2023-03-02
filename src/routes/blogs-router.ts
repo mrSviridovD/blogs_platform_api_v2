@@ -10,12 +10,13 @@ import {auth} from "../middlewares/basic-auth";
 export const blogsRouter = Router({});
 
 blogsRouter.get('/', (req:Request,res:Response) => {
-    res.send(blogsRepository.returnAllBlogs());
+    res.status(200).send(blogsRepository.returnAllBlogs());
 })
 
 blogsRouter.get('/:id', (req:Request,res:Response) => {
-    if(blogsRepository.findBlog(req.params.id)){
-        res.send(blogsRepository.findBlog(req.params.id))
+    const foundBlog = blogsRepository.findBlog(req.params.id)
+    if(foundBlog){
+        res.status(200).send(foundBlog)
     }
     else{
         res.sendStatus(404)
