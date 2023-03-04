@@ -32,8 +32,8 @@ export const postsRepository = {
             title: post.title,
             shortDescription: post.shortDescription,
             content: post.content,
-            blogId: post.blogId,
-            blogName: post.blogName
+            blogId: foundIdBlog.id,
+            blogName: foundIdBlog.name
         }
         bdPosts.push(newPost);
         return newPost;
@@ -46,8 +46,8 @@ export const postsRepository = {
                 foundPost.title = post.title
                 foundPost.shortDescription = post.shortDescription
                 foundPost.content = post.content
-                foundPost.blogId = post.blogId
-                foundPost.blogName = post.blogName
+                foundPost.blogId = foundBlog.id
+                foundPost.blogName = foundBlog.name
             return foundPost
         }
         return null
