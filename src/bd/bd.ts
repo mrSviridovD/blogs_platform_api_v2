@@ -14,14 +14,14 @@ export type Post = {
     blogName: string
 }
 
-export const bdBlogs = [ {
+export const bdBlogs: Array <Blog> = [ {
     "id": "1",
     "name": "NameBlog",
     "description": "DescName",
     "websiteUrl": "http://test.test"
 }]
 
-export const bdPosts = [
+export const bdPosts: Array <Post> = [
     {
         id: "1",
         title: "testPost",

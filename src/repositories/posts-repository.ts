@@ -16,7 +16,7 @@ export const postsRepository = {
     deletePost(id: string){
         const foundPost = bdPosts.find(p => p.id === id)
         if(foundPost){
-            bdPosts.filter(p => p.id !== id)
+             bdPosts.filter(p => p.id !== id)
             return true
         }
         return false

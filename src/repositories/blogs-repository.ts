@@ -18,6 +18,7 @@ export const blogsRepository = {
             bdBlogs.filter(b => b.id !== id)
             return true
         }
+
         return false
     },
     createBlog(blog: Blog){
