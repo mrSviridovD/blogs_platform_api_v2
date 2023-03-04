@@ -15,7 +15,8 @@ export const blogsRepository = {
     deleteBlog(id: string){
         const foundBlog = bdBlogs.find(b => b.id === id)
         if(foundBlog){
-            bdBlogs.filter(b => b.id !== id)
+            // @ts-ignore
+            bdBlogs = bdBlogs.filter(b => b.id !== id)
             return true
         }
 
