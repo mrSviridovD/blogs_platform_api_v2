@@ -16,17 +16,17 @@ export type Post = {
 
 export let bdBlogs: Array <Blog> = [ {
     "id": "1",
-    "name": "NameBlog",
-    "description": "DescName",
+    "name": "IT Kamasutra",
+    "description": "Tut vse ili net",
     "websiteUrl": "http://test.test"
 }]
 
 export let bdPosts: Array <Post> = [
     {
         id: "1",
-        title: "testPost",
-        shortDescription: "testDesPost",
-        content: "testConPost",
+        title: "Post 666 IT",
+        shortDescription: "Satanisti IT 666",
+        content: "666 666 666 666 999 666 666 666",
         blogId: "1",
         blogName: "NameBlog"
     }
